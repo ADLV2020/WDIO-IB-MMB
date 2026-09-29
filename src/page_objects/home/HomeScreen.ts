@@ -1,5 +1,4 @@
 import { BaseScreen } from '../base/BaseScreen';
-import { BasePage } from '../base/BasePage';
 
 export class HomeScreen extends BaseScreen {
   screenName = 'HOME';
