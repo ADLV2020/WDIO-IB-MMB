@@ -78,7 +78,7 @@ WDIO-IB-MMB/
 ├── tsconfig.json
 ├── package.json
 └── README.md
-
+```
 ---
 
 ## 🛠️ Requisitos Previos
@@ -139,6 +139,7 @@ npm run report:generate
 # Abrir el servidor local de Allure para consultar el reporte
 npm run report:open
 ```
+---
 
 ## 📝 Ejemplo de Escenario BDD (Gherkin)
 
@@ -156,9 +157,12 @@ Feature: Gestion de Reservas general - MMB
     And valida el texto literal "Su Reserva para" en la pantalla "ManageMyBooking"
 ```
 
+---
+
 ## 🔒 Seguridad y Buenas Prácticas
 
 * **No Subir Secretos: Los archivos que contienen tokens de acceso (config/env/*.env.ts) están ignorados por .gitignore.
 
 * **Seguimiento del Lockfile: El archivo package-lock.json debe ser enviado al repositorio para asegurar la reproducibilidad de versiones en pipelines de integración continua (CI/CD).
 
+---
