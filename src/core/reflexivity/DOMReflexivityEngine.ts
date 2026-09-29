@@ -1,3 +1,4 @@
+
 export class DOMReflexivityEngine {
   /**
    * Busca en el DOM un elemento interactivo cuyo texto, placeholder, aria-label,
