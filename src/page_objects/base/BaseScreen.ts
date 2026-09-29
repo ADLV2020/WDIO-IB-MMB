@@ -1,3 +1,4 @@
+
 export abstract class BaseScreen {
   abstract screenName: string;
   abstract aliasesMap: Record<string, string>;

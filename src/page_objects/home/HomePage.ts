@@ -1,4 +1,3 @@
-import { BaseScreen } from '../base/BaseScreen';
 import { BasePage } from '../base/BasePage';
 import { HomeScreen } from './HomeScreen';
 

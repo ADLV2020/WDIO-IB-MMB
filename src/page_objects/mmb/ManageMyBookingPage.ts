@@ -1,5 +1,5 @@
-import { BaseScreen } from '../base/BaseScreen';
 import { BasePage } from '../base/BasePage';
+import { ManageMyBookingScreen } from './ManageMyBookingScreen';
 
 export class ManageMyBookingPage extends BasePage {
   screen = new ManageMyBookingScreen();
