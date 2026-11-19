@@ -1,26 +1,40 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "lib": ["ES2022", "DOM"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@page_objects/*": ["./src/page_objects/*"],
+      "@steps/*": ["./src/steps/*"],
+      "@strategies/*": ["./src/strategies/*"],
+      "@facade/*": ["./src/facade/*"],
+      "@env/*": ["./config/env/*"]
+    },
     "types": [
       "node",
       "@wdio/globals/types",
       "@wdio/cucumber-framework"
     ],
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
     "outDir": "./dist",
     "rootDir": "./"
   },
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "require": ["tsconfig-paths/register"]
+  },
   "include": [
     "src/**/*.ts",
-    "config/**/*.ts"
+    "config/**/*.ts",
+    "wdio.conf.ts"
   ],
   "exclude": [
     "node_modules",

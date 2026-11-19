@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { AirlineNavigationFacade } from '../../facade/AirlineNavigationFacade';
+import { AirlineNavigationFacade } from '@facade/AirlineNavigationFacade.js';
 
 Given(/^un usuario con PNR "([^"]*)" y apellido "([^"]*)"$/, async (pnr: string, apellido: string) => {
   // Contexto de datos en sesión/world si se requiere
