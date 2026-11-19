@@ -1,4 +1,4 @@
-import { BaseScreen } from './BaseScreen';
+import { BaseScreen } from './BaseScreen.js';
 
 export abstract class BasePage {
   abstract screen: BaseScreen;

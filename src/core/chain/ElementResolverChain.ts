@@ -1,4 +1,4 @@
-import { DOMReflexivityEngine } from '../reflexivity/DOMReflexivityEngine';
+import { DOMReflexivityEngine } from '../reflexivity/DOMReflexivityEngine.js';
 
 export interface ElementResolver {
   setNext(resolver: ElementResolver): ElementResolver;
@@ -39,4 +39,5 @@ export class PageObjectResolver extends BaseElementResolver {
     }
     return super.resolve(targetName, pageObject);
   }
+
 }

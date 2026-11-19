@@ -1,16 +1,16 @@
 import type { Options } from '@wdio/types';
-import path from 'path';
+import { browser } from '@wdio/globals';
 
 export const config: Options.Testrunner = {
   // ====================
   // Configuración Runner
   // ====================
   runner: 'local',
-  autoCompileOpts: {
+    autoCompileOpts: {
     autoCompile: true,
     tsNodeOpts: {
       transpileOnly: true,
-      project: './tsconfig.json'
+      project: 'tsconfig.json'
     }
   },
 
@@ -18,7 +18,8 @@ export const config: Options.Testrunner = {
   // Ubicación de Specs
   // ==================
   specs: [
-    '../src/features/**/*.feature'
+    './src/features/*.feature',
+    './src/features/**/*.feature'
   ],
   exclude: [],
 
@@ -35,7 +36,9 @@ export const config: Options.Testrunner = {
         '--window-size=1920,1080',
         '--no-sandbox',
         '--disable-dev-shm-usage',
-        '--ignore-certificate-errors'
+        '--ignore-certificate-errors',
+        '--log-level=3',
+        '--silent'
       ]
     }
   }],
@@ -53,7 +56,7 @@ export const config: Options.Testrunner = {
   // =====================
   // Servicios y Reportes
   // =====================
-  services: ['chromedriver'],
+  services: [],
   framework: 'cucumber',
   reporters: [
     'spec',
@@ -85,10 +88,7 @@ export const config: Options.Testrunner = {
   // ======================================
   // Hooks
   // ======================================
-  /**
-   * Captura automática de pantalla en caso de fallo en un paso de Cucumber
-   */
-  afterStep: async function (step, scenario, result) {
+  afterStep: async function (_step: unknown, _scenario: unknown, result: { passed: boolean; error?: unknown }) {
     if (!result.passed) {
       await browser.takeScreenshot();
     }

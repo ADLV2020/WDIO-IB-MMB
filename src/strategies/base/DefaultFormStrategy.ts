@@ -1,5 +1,5 @@
-import { IFormStrategy } from './IFormStrategy';
-import { ReflexivityResolver, PageObjectResolver } from '../../core/chain/ElementResolverChain';
+import { IFormStrategy } from './IFormStrategy.js';
+import { ReflexivityResolver, PageObjectResolver } from '../../core/chain/ElementResolverChain.js';
 
 export class DefaultFormStrategy implements IFormStrategy {
   private chainResolver = new ReflexivityResolver();
