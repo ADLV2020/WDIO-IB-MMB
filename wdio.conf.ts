@@ -6,12 +6,8 @@ export const config: Options.Testrunner = {
   // Configuración Runner
   // ====================
   runner: 'local',
-    autoCompileOpts: {
-    autoCompile: true,
-    tsNodeOpts: {
-      transpileOnly: true,
-      project: 'tsconfig.json'
-    }
+  autoCompileOpts: {
+    autoCompile: false
   },
 
   // ==================

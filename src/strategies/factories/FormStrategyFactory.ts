@@ -1,5 +1,5 @@
-import { IFormStrategy } from '../base/IFormStrategy.js';
-import { DefaultFormStrategy } from '../base/DefaultFormStrategy.js';
+import { IFormStrategy } from '../base/IFormStrategy';
+import { DefaultFormStrategy } from '../base/DefaultFormStrategy';
 
 export class FormStrategyFactory {
   private static strategies: Record<string, IFormStrategy> = {};

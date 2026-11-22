@@ -1,4 +1,4 @@
-import { INT_ENV } from '@env/int.env.js';
+import { INT_ENV } from '@env/int.env';
 
 export class EnvironmentManager {
   private static instance: EnvironmentManager;

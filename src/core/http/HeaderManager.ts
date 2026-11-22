@@ -1,4 +1,4 @@
-import { EnvironmentManager } from '../singleton/EnvironmentManager.js';
+import { EnvironmentManager } from '../singleton/EnvironmentManager';
 
 export class HeaderManager {
   public static async injectAuthHeaderIfNeeded(): Promise<void> {
