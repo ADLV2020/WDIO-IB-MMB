@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "esModuleInterop": true,
     "strict": true,
@@ -10,7 +10,6 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "paths": {
       "@core/*": ["./src/core/*"],
       "@page_objects/*": ["./src/page_objects/*"],
@@ -26,6 +25,11 @@
     ],
     "outDir": "./dist",
     "rootDir": "./"
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
   },
   "include": [
     "src/**/*.ts",

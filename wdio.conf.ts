@@ -7,7 +7,11 @@ export const config: Options.Testrunner = {
   // ====================
   runner: 'local',
   autoCompileOpts: {
-    autoCompile: false
+    autoCompile: true,
+    tsNodeOpts: {
+      transpileOnly: true,
+      project: './tsconfig.json',
+    },
   },
 
   // ==================
@@ -70,7 +74,6 @@ export const config: Options.Testrunner = {
   cucumberOpts: {
     require: ['./src/steps/**/*.ts'],
     backtrace: false,
-    requireModule: [],
     dryRun: false,
     failFast: false,
     snippets: true,
