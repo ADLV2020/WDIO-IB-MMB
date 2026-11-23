@@ -32,6 +32,9 @@ export const config: Options.Testrunner = {
     browserName: 'chrome',
     'goog:chromeOptions': {
       args: [
+        'start-maximized',
+        '--disable-blink-features=AutomationControlled',
+        '--disable-popup-blocking',
         '--disable-gpu',
         '--window-size=1920,1080',
         '--no-sandbox',
