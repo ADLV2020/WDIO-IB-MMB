@@ -1,5 +1,6 @@
 import type { Options } from '@wdio/types';
 import { browser } from '@wdio/globals';
+import { HeaderManager } from './src/core/http/HeaderManager.js';
 
 export const config: Options.Testrunner = {
   // ====================
@@ -32,16 +33,16 @@ export const config: Options.Testrunner = {
     browserName: 'chrome',
     'goog:chromeOptions': {
       args: [
-        'start-maximized',
+        '--start-maximized',
         '--disable-blink-features=AutomationControlled',
         '--disable-popup-blocking',
         '--disable-gpu',
-        '--window-size=1920,1080',
         '--no-sandbox',
         '--disable-dev-shm-usage',
         '--ignore-certificate-errors',
         '--log-level=3',
         '--silent'
+        // '--window-size=1920,1080'
       ]
     }
   }],
@@ -90,9 +91,18 @@ export const config: Options.Testrunner = {
   // ======================================
   // Hooks
   // ======================================
+  beforeScenario: async function () {
+    await HeaderManager.injectAuthHeaderIfNeeded();
+  },
+
+  beforeStep: async function () {
+    await HeaderManager.injectAuthHeaderIfNeeded();
+  },
+
   afterStep: async function (_step: unknown, _scenario: unknown, result: { passed: boolean; error?: unknown }) {
     if (!result.passed) {
       await browser.takeScreenshot();
     }
   }
+
 };
