@@ -35,13 +35,13 @@ Given(/^se accede a manage my booking$/, async () => {
 });
 When(/^se ingresa el apellido$/, async () => {
   //
-  await browser.pause(5000);
+  await browser.pause(25000);
 });
 When(/^se ingresa el PNR$/, async () => {
   //
-  await browser.pause(5000);
+  await browser.pause(25000);
 });
 When(/^se hace click en gestionar$/, async () => {
   //
-  await browser.pause(5000);
+  await browser.pause(35000);
 });
