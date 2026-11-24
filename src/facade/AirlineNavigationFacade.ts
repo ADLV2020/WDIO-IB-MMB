@@ -1,9 +1,9 @@
-import { EnvironmentManager } from '@core/singleton/EnvironmentManager.js';
-import { HeaderManager } from '@core/http/HeaderManager.js';
-import { FormStrategyFactory } from '@strategies/factories/FormStrategyFactory.js';
-import { HomePage } from '@page_objects/home/HomePage.js';
-import { BookingManagementPage } from '@page_objects/booking_management/BookingManagementPage.js';
-import { ManageMyBookingPage } from '@page_objects/mmb/ManageMyBookingPage.js';
+import { EnvironmentManager } from '@core/singleton/EnvironmentManager';
+import { HeaderManager } from '@core/http/HeaderManager';
+import { FormStrategyFactory } from '@strategies/factories/FormStrategyFactory';
+import { HomePage } from '@page_objects/home/HomePage';
+import { BookingManagementPage } from '@page_objects/booking_management/BookingManagementPage';
+import { ManageMyBookingPage } from '@page_objects/mmb/ManageMyBookingPage';
 
 export class AirlineNavigationFacade {
   private static pages: Record<string, any> = {

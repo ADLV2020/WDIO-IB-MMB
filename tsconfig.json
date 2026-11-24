@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noImplicitAny": true,
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@core/*": ["./src/core/*"],
       "@page_objects/*": ["./src/page_objects/*"],
@@ -21,15 +23,13 @@
       "@wdio/globals/types",
       "@wdio/cucumber-framework"
     ],
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "rootDir": "./"
   },
   "ts-node": {
-    "transpileOnly": true,
-    "files": true,
-    "require": ["tsconfig-paths/register"]
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
   },
   "include": [
     "src/**/*.ts",

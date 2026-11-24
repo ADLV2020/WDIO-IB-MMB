@@ -1,4 +1,4 @@
-import { DOMReflexivityEngine } from '../reflexivity/DOMReflexivityEngine.js';
+import { DOMReflexivityEngine } from '../reflexivity/DOMReflexivityEngine';
 
 export interface ElementResolver {
   setNext(resolver: ElementResolver): ElementResolver;

@@ -6,12 +6,12 @@ export const config: Options.Testrunner = {
   // Configuración Runner
   // ====================
   runner: 'local',
-    autoCompileOpts: {
+  autoCompileOpts: {
     autoCompile: true,
     tsNodeOpts: {
       transpileOnly: true,
-      project: 'tsconfig.json'
-    }
+      project: './tsconfig.json',
+    },
   },
 
   // ==================
@@ -32,6 +32,9 @@ export const config: Options.Testrunner = {
     browserName: 'chrome',
     'goog:chromeOptions': {
       args: [
+        'start-maximized',
+        '--disable-blink-features=AutomationControlled',
+        '--disable-popup-blocking',
         '--disable-gpu',
         '--window-size=1920,1080',
         '--no-sandbox',
@@ -74,7 +77,6 @@ export const config: Options.Testrunner = {
   cucumberOpts: {
     require: ['./src/steps/**/*.ts'],
     backtrace: false,
-    requireModule: [],
     dryRun: false,
     failFast: false,
     snippets: true,

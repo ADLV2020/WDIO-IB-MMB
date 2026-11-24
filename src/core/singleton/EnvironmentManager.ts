@@ -1,4 +1,4 @@
-import { INT_ENV } from '@env/int.env.js';
+import { INT_ENV } from '@env/int.env';
 
 export class EnvironmentManager {
   private static instance: EnvironmentManager;
@@ -20,7 +20,7 @@ export class EnvironmentManager {
     return this.currentEnv.baseUrl;
   }
 
-  public getAuthHeader(): string {
+  public getAuthHeader(): { [key: string]: string } | undefined {
     return this.currentEnv.authHeader;
   }
 }

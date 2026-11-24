@@ -1,8 +1,8 @@
-import { Given, When, Then } from '@cucumber/cucumber';
+import { Given, When, Then } from '@wdio/cucumber-framework';
 import { AirlineNavigationFacade } from '@facade/AirlineNavigationFacade.js';
 
 Given(/^un usuario con PNR "([^"]*)" y apellido "([^"]*)"$/, async (pnr: string, apellido: string) => {
-  // Contexto de datos en sesión/world si se requiere
+  //Contexto de datos en sesión/world si se requiere
 });
 
 Given(/^se accede a "([^"]*)"$/, async (screenName: string) => {
@@ -23,4 +23,21 @@ Then(/^se accede a la pantalla "([^"]*)"$/, async (screenName: string) => {
 
 Then(/^valida el texto literal "([^"]*)" en la pantalla "([^"]*)"$/, async (expectedText: string, screenName: string) => {
   await AirlineNavigationFacade.verifyLiteralText(expectedText);
+});
+
+
+Given(/^se accede a portal$/, async () => {
+  await AirlineNavigationFacade.navigateToHome();
+});
+Given(/^se accede a manage my booking$/, async () => {
+  //
+});
+When(/^se ingresa el apellido$/, async () => {
+  //
+});
+When(/^se ingresa el PNR$/, async () => {
+  //
+});
+When(/^se hace click en gestionar$/, async () => {
+  //
 });

@@ -1,4 +1,4 @@
-import { BaseScreen } from '@page_objects/base/BaseScreen.js';
+import { BaseScreen } from '@page_objects/base/BaseScreen';
 
 export class ManageMyBookingScreen extends BaseScreen {
   screenName = 'ManageMyBooking';

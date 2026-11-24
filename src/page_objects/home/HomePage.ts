@@ -1,5 +1,5 @@
-import { BasePage } from '../base/BasePage.js';
-import { HomeScreen } from './HomeScreen.js';
+import { BasePage } from '../base/BasePage';
+import { HomeScreen } from './HomeScreen';
 
 export class HomePage extends BasePage {
   screen = new HomeScreen();
