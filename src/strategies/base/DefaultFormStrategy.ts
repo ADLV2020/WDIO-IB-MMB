@@ -1,11 +1,12 @@
+
 import { IFormStrategy } from './IFormStrategy';
 import { ReflexivityResolver, PageObjectResolver } from '../../core/chain/ElementResolverChain';
 
 export class DefaultFormStrategy implements IFormStrategy {
-  private chainResolver = new ReflexivityResolver();
+  private chainResolver = new PageObjectResolver();
 
   constructor() {
-    this.chainResolver.setNext(new PageObjectResolver());
+    this.chainResolver.setNext(new ReflexivityResolver());
   }
 
   public async typeInput(fieldName: string, value: string, pageObject: any): Promise<void> {

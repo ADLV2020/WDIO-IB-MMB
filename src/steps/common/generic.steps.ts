@@ -6,7 +6,7 @@ Given(/^un usuario con PNR "([^"]*)" y apellido "([^"]*)"$/, async (pnr: string,
 });
 
 Given(/^se accede a "([^"]*)"$/, async (screenName: string) => {
-  await AirlineNavigationFacade.navigateToHome();
+  await AirlineNavigationFacade.navigateToHome(screenName);
 });
 
 When(/^hace click en "([^"]*)" de la pantalla "([^"]*)"$/, async (elementName: string, screenName: string) => {
@@ -27,17 +27,21 @@ Then(/^valida el texto literal "([^"]*)" en la pantalla "([^"]*)"$/, async (expe
 
 
 Given(/^se accede a portal$/, async () => {
-  await AirlineNavigationFacade.navigateToHome();
+  await AirlineNavigationFacade.navigateToHome('HOME');
 });
 Given(/^se accede a manage my booking$/, async () => {
   //
+  await browser.pause(5000);
 });
 When(/^se ingresa el apellido$/, async () => {
   //
+  await browser.pause(5000);
 });
 When(/^se ingresa el PNR$/, async () => {
   //
+  await browser.pause(5000);
 });
 When(/^se hace click en gestionar$/, async () => {
   //
+  await browser.pause(5000);
 });
