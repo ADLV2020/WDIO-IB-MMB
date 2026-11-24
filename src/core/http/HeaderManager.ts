@@ -1,10 +1,13 @@
 
 import { browser } from '@wdio/globals';
-import type { CDPSession, Page } from 'puppeteer-core';
 import { INT_ENV, PRE_ENV } from '../../../config/env/int.env.js';
 
+type WdioPuppeteerBrowser = Awaited<ReturnType<typeof browser.getPuppeteer>>;
+type WdioPuppeteerPage = Awaited<ReturnType<WdioPuppeteerBrowser['pages']>>[number];
+type WdioCDPSession = Awaited<ReturnType<WdioPuppeteerPage['createCDPSession']>>;
+
 export class HeaderManager {
-  private static configuredPages = new WeakSet<Page>();
+  private static configuredPages = new WeakSet<WdioPuppeteerPage>();
   private static listenerAttached = false;
 
   public static async injectAuthHeaderIfNeeded(): Promise<void> {
@@ -37,13 +40,13 @@ export class HeaderManager {
   }
 
   private static async attachInterceptorToPage(
-    page: Page,
+    page: WdioPuppeteerPage,
     authHeaderEntries: [string, string][]
   ): Promise<void> {
     if (this.configuredPages.has(page)) return;
     this.configuredPages.add(page);
 
-    const client: CDPSession = await page.createCDPSession();
+    const client: WdioCDPSession = await page.createCDPSession();
 
     // Evita que Chrome use respuestas 401/403 cacheadas por Akamai
     await client.send('Network.setCacheDisabled', { cacheDisabled: true });
