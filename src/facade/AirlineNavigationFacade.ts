@@ -13,25 +13,28 @@ export class AirlineNavigationFacade {
     'ManageMyBooking': new ManageMyBookingPage()
   };
 
-  public static async navigateToHome(): Promise<void> {
+  public static async navigateToHome(screenName: string): Promise<void> {
     await HeaderManager.injectAuthHeaderIfNeeded();
     const url = EnvironmentManager.getInstance().getBaseUrl();
     await browser.url(url);
   }
 
   public static async clickElement(elementName: string, screenName: string): Promise<void> {
+    await HeaderManager.injectAuthHeaderIfNeeded();
     const page = this.getPage(screenName);
     const strategy = FormStrategyFactory.getStrategy(screenName);
     await strategy.clickButton(elementName, page);
   }
 
   public static async enterText(value: string, fieldName: string, screenName: string): Promise<void> {
+    await HeaderManager.injectAuthHeaderIfNeeded();
     const page = this.getPage(screenName);
     const strategy = FormStrategyFactory.getStrategy(screenName);
     await strategy.typeInput(fieldName, value, page);
   }
 
   public static async verifyScreenAccess(screenName: string): Promise<void> {
+    await HeaderManager.injectAuthHeaderIfNeeded();
     const page = this.getPage(screenName);
     expect(page).toBeDefined();
     await browser.pause(2000); // Espera de estabilización

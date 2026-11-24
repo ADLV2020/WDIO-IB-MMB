@@ -4,6 +4,7 @@ import { HomeScreen } from './HomeScreen';
 export class HomePage extends BasePage {
   screen = new HomeScreen();
   locators = {
-    btnGestionReservas: '//button[contains(text(),"Gestión de Reservas")] | //a[contains(@href,"gestion")]'
+    btnGestion: '//button[contains(text(),"Gestión de Reservas")] | //a[contains(@href,"gestion")]',
+    btnGestionReservas: 'button[title="Gestionar Reservas"], button[onclick*="gestion-de-reservas"]'
   };
 }
