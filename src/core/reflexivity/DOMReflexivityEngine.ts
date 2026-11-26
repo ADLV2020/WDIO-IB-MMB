@@ -1,3 +1,4 @@
+// src/core/reflexivity/DOMReflexivityEngine.ts
 
 export class DOMReflexivityEngine {
   /**

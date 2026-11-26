@@ -1,3 +1,5 @@
+// src/core/chain/ElementResolverChain.ts
+
 import { DOMReflexivityEngine } from '../reflexivity/DOMReflexivityEngine';
 
 export interface ElementResolver {
