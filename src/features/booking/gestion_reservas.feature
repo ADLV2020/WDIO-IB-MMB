@@ -5,6 +5,8 @@
     Given se accede a manage my booking
     Given se accede a "pantallaHome"
     And se accede a manage my booking
+    And acepta todas las politicas de cookies de Iberia
+    And se accede a manage my booking
     And hace click en "Gestión de Reservas" de la pantalla "HOME"
     #When 
     #And hace click en "Acepatar Modal" de la pantalla "GestionDeReservas"
