@@ -1,12 +1,14 @@
-import { INT_ENV } from '@env/int.env';
+// src/core/singleton/EnvironmentManager.ts
+
+import { INT_ENV, PRE_ENV } from '@env/int.env';
 
 export class EnvironmentManager {
   private static instance: EnvironmentManager;
   private currentEnv: typeof INT_ENV;
 
   private constructor() {
-    // Por defecto toma INT, expandible con process.env.ENV
-    this.currentEnv = INT_ENV;
+    const env = (process.env.ENV || 'INT').toUpperCase();
+    this.currentEnv = env === 'PRE' ? PRE_ENV : INT_ENV;
   }
 
   public static getInstance(): EnvironmentManager {

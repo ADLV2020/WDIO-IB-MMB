@@ -1,3 +1,4 @@
+// src/core/http/HeaderManager.ts
 
 import { browser } from '@wdio/globals';
 import { INT_ENV, PRE_ENV } from '../../../config/env/int.env.js';
