@@ -11,6 +11,18 @@ import { HeaderManager } from './src/core/http/HeaderManager.js';
 const allureReporter = (allureReporterModule as any).default ?? allureReporterModule;
 const targetEnv = (process.env.ENV || 'INT').toUpperCase();
 
+function resolveSpecs(): string[] {
+  if (process.env.SPEC) {
+    return [process.env.SPEC];
+  }
+  const pickerFile = path.resolve(process.cwd(), '.vscode/.selected-spec');
+  if (process.env.DEBUG_PICKER === 'true' && fs.existsSync(pickerFile)) {
+    const selected = fs.readFileSync(pickerFile, 'utf-8').trim();
+    if (selected) return [selected];
+  }
+  return ['./src/features/*.feature', './src/features/**/*.feature'];
+}
+
 export const config: Options.Testrunner = {
   runner: 'local',
   autoCompileOpts: {
@@ -21,9 +33,8 @@ export const config: Options.Testrunner = {
     },
   },
 
-  specs: process.env.SPEC
-    ? [process.env.SPEC]
-    : ['./src/features/*.feature', './src/features/**/*.feature'],
+  // specs: process.env.SPEC ? [process.env.SPEC] : ['./src/features/*.feature', './src/features/**/*.feature'],
+  specs: resolveSpecs(),
   exclude: [],
 
   maxInstances: 1,
