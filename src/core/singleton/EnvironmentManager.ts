@@ -3,12 +3,14 @@
 import { INT_ENV, PRE_ENV } from '@env/int.env';
 
 export class EnvironmentManager {
+  
   private static instance: EnvironmentManager;
   private currentEnv: typeof INT_ENV;
 
   private constructor() {
-    const env = (process.env.ENV || 'INT').toUpperCase();
-    this.currentEnv = env === 'PRE' ? PRE_ENV : INT_ENV;
+    const rawEnv = (process.env.ENV || 'INT').toUpperCase();
+    const resolvedEnv = rawEnv === 'DEFAULT' ? 'INT' : rawEnv;
+    this.currentEnv = resolvedEnv === 'PRE' ? PRE_ENV : INT_ENV;
   }
 
   public static getInstance(): EnvironmentManager {
@@ -25,4 +27,5 @@ export class EnvironmentManager {
   public getAuthHeader(): { [key: string]: string } | undefined {
     return this.currentEnv.authHeader;
   }
+
 }

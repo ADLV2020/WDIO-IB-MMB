@@ -12,7 +12,8 @@ export class HeaderManager {
   private static listenerAttached = false;
 
   public static async injectAuthHeaderIfNeeded(): Promise<void> {
-    const envName = (process.env.ENV || 'INT').toUpperCase();
+    const rawEnv = (process.env.ENV || 'INT').toUpperCase();
+    const envName = rawEnv === 'DEFAULT' ? 'INT' : rawEnv;
     if (envName !== 'INT' && envName !== 'PRE') return;
 
     const envConfig = envName === 'PRE' ? PRE_ENV : INT_ENV;
